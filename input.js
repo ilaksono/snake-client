@@ -46,6 +46,10 @@ const handleUserInput = (data) => {
     // process.stdout.write('\nleft\n');
     connection.write('Move: left');
   }
+  if(data === ']')
+    connection.write('Say: SUUH DUDE');
+  if(data === '[')
+    connection.write('Say: HOW BOW DAH');
 
 };
 
