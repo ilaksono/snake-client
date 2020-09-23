@@ -2,7 +2,7 @@ const { setupInput } = require('./input');
 const { connect } = require('./client');
 console.log('Connecting ...');
 connect();
-setupInput();
+setupInput(connect);
 
 setTimeout((function() {
   console.log('Exiting client');
