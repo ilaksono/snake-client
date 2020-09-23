@@ -1,5 +1,6 @@
 const { SIGINT } = require('constants');
 const readline = require('readline');
+// const { connect } = require('./client');
 
 let connection;
 
@@ -29,17 +30,21 @@ const handleUserInput = (data) => {
     console.log('Exiting client by CTRL C');
     return process.exit(22);
   }
-  if (data === '\u001B\u005B\u0041') {
-    process.stdout.write('\nup\n');
+  if (data === '\u001B\u005B\u0041' || data === 'w') {
+    // process.stdout.write('\nup\n');
+    connection.write('Move: up');
   }
-  if (data === '\u001B\u005B\u0043') {
-    process.stdout.write('\nright\n');
+  if (data === '\u001B\u005B\u0043' || data === 'd') {
+    // process.stdout.write('\nright\n');
+    connection.write('Move: right');
   }
-  if (data === '\u001B\u005B\u0042') {
-    process.stdout.write('\ndown\n');
+  if (data === '\u001B\u005B\u0042' || data === 's') {
+    // process.stdout.write('\ndown\n');
+    connection.write('Move: down');
   }
-  if (data === '\u001B\u005B\u0044') {
-    process.stdout.write('\nleft\n');
+  if (data === '\u001B\u005B\u0044' || data === 'a') {
+    // process.stdout.write('\nleft\n');
+    connection.write('Move: left');
   }
 
 };
