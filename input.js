@@ -1,7 +1,7 @@
 const { SIGINT } = require('constants');
 const readline = require('readline');
 // const { connect } = require('./client');
-
+const { msg: msg } = require('./constants')
 let connection;
 
 const setupInput = function (conn) {
@@ -46,11 +46,9 @@ const handleUserInput = (data) => {
     // process.stdout.write('\nleft\n');
     connection.write('Move: left');
   }
-  if(data === ']')
-    connection.write('Say: SUUH DUDE');
-  if(data === '[')
-    connection.write('Say: HOW BOW DAH');
-
+  if(msg[data])
+    connection.write('Say: ' + msg[data]);
+  else {}
 };
 
 module.exports = {
